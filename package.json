@@ -8,11 +8,13 @@
     "build-assets": "webpack --config ./webpack.config.js",
     "build-product-id": "mkdir --parents ./src/t2/config/ && echo \"export default '$PID';\" > ./src/t2/config/product-id.js",
     "build-routes": "find ./src/routes/ -type f | xargs cat | sed 's@/@/api/@' > ./deploy/routes.lua",
+    "build-t2": "babel ./src/t2/ --out-dir ./deploy/t2/",
     "build-x-exosite-cik": "mkdir --parents ./src/t2/config/ && curl -s -H'Content-Type: application/x-www-form-urlencoded; charset=utf-8' -d \"vendor=$PID&model=$PID&sn=$SN\" 'http://m2.exosite.com/provision/activate' | sed \"s/.*/export default '&';/\" | tee ./src/t2/config/x-exosite-cik.js | xargs",
     "deploy": "npm run build-assets && npm run build-routes && exosite --deploy",
     "clean": "rm --force --recursive ./deploy/ ./node_modules/",
     "lint": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore .",
     "start": "webpack-dev-server --config ./webpack.config.js",
+    "t2": "sudo PATH=$PATH bash -c 't2 run ./deploy/t2/index.js'",
     "test": "mocha --opts ./test/assets/mocha.opts"
   },
   "repository": {
