@@ -1,0 +1,12 @@
+{
+  "assets": "./deploy/assets",
+  "cors": {
+    "origin": [
+      "http://localhost:*",
+      "https://fuchico.apps.exosite.io"
+    ]
+  },
+  "default_page": "default_page.html",
+  "routes": "./deploy/routes.lua",
+  "version": "0.3"
+}

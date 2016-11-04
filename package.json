@@ -6,7 +6,10 @@
   "main": "src/assets/index.js",
   "scripts": {
     "build-assets": "webpack --config ./webpack.config.js",
-    "deploy": "npm run build-assets",
+    "build-product-id": "mkdir --parents ./src/t2/config/ && echo \"export default '$PID';\" > ./src/t2/config/product-id.js",
+    "build-routes": "find ./src/routes/ -type f | xargs cat | sed 's@/@/api/@' > ./deploy/routes.lua",
+    "build-x-exosite-cik": "mkdir --parents ./src/t2/config/ && curl -s -H'Content-Type: application/x-www-form-urlencoded; charset=utf-8' -d \"vendor=$PID&model=$PID&sn=$SN\" 'http://m2.exosite.com/provision/activate' | sed \"s/.*/export default '&';/\" | tee ./src/t2/config/x-exosite-cik.js | xargs",
+    "deploy": "npm run build-assets && npm run build-routes && exosite --deploy",
     "clean": "rm --force --recursive ./deploy/ ./node_modules/",
     "lint": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore .",
     "start": "webpack-dev-server --config ./webpack.config.js",
@@ -49,6 +52,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.16.0",
+    "isomorphic-fetch": "^2.2.1",
     "material-ui": "^0.16.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",

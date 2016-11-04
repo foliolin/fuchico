@@ -1,4 +1,6 @@
+/.Solutionfile.secret
 /build/
 /deploy/
 /node_modules/
 /npm-debug.log
+/src/t2/config/
