@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.16.0",
+    "climate-si7020": "^0.1.1",
     "isomorphic-fetch": "^2.2.1",
     "material-ui": "^0.16.1",
     "react": "^15.3.2",
