@@ -16,7 +16,6 @@ ambient.on('ready', () => {
       if (err) throw err;
       ambient.getSoundLevel( function(err, sounddata) {
         if (err) throw err;
-        console.log("Light level:", lightdata.toFixed(8), " ", "Sound Level:", sounddata.toFixed(8));
         write({
           productId,
           xExositeCik,

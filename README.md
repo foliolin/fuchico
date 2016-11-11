@@ -11,11 +11,11 @@ Add required env keys to `` requiredKeys `` in `` env.js ``.
 Activate
 --------
 
-This activates sn, rrene, of product, nu4nakt9ufmvx6r and saves the cik at
-`` ./src/cik/nu4nakt9ufmvx6r/rrene ``.
+This activates sn, fuchico, of product, nu4nakt9ufmvx6r and saves the cik at
+`` ./src/cik/nu4nakt9ufmvx6r/fuchico ``.
 
 ```sh
-PID=nu4nakt9ufmvx6r SN=rrene npm run build-x-exosite-cik
+PID=nu4nakt9ufmvx6r SN=fuchico npm run build-x-exosite-cik
 ```
 
 Config pid
